@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maxademics — Free Tools & Resources for Teachers</title>
+<meta name="description" content="Free, fast tools and resources for educators: a Canvas accessibility fixer, classroom templates, how-to guides, and curated teaching books. Built by a teacher, for teachers." />
+<meta property="og:title" content="Maxademics — Free tools for teachers" />
+<meta property="og:description" content="Fix Canvas files in seconds, grab free accessible templates, and find the teaching books educators actually use." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maxademics.com/" />
+<style>
+  :root {
+    --ink: #0f172a; --ink-soft: #475569; --paper: #ffffff; --bg: #f8fafc;
+    --line: #e2e8f0; --brand: #0d9488; --brand-dark: #0f766e; --brand-soft: #ccfbf1;
+    --accent: #f59e0b; --radius: 14px;
+    --shadow: 0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--brand-dark); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  nav.top { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; }
+  nav.top .inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+  .logo { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+  .logo .dot { color: var(--brand); }
+  nav.top ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; font-size: 15px; font-weight: 500; }
+  nav.top a { color: var(--ink-soft); }
+  nav.top a:hover { color: var(--ink); text-decoration: none; }
+  @media (max-width: 700px) { nav.top ul { display: none; } }
+  .hero { background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%); padding: 64px 0 48px; border-bottom: 1px solid var(--line); }
+  .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 16px; max-width: 720px; }
+  .hero .sub { font-size: 18px; color: var(--ink-soft); max-width: 640px; margin: 0 0 28px; }
+  .hero .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--brand-soft); color: var(--brand-dark); padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 18px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer; border: 1px solid transparent; font-family: inherit; transition: transform .08s, background .15s, color .15s; }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--brand); color: white; }
+  .btn-primary:hover { background: var(--brand-dark); text-decoration: none; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { background: var(--paper); text-decoration: none; }
+  section { padding: 56px 0; }
+  section h2 { font-size: clamp(24px, 3.5vw, 32px); letter-spacing: -0.02em; margin: 0 0 8px; }
+  section .lede { color: var(--ink-soft); font-size: 16px; margin: 0 0 32px; max-width: 640px; }
+  .tool-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+  .tool-card h3 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.015em; }
+  .tool-card p { margin: 0; color: var(--ink-soft); }
+  .tool-card .meta { display: flex; gap: 14px; margin-top: 10px; font-size: 13px; color: var(--ink-soft); }
+  .tool-card .meta span::before { content: "✓ "; color: var(--brand); font-weight: 700; }
+  @media (max-width: 600px) { .tool-card { grid-template-columns: 1fr; text-align: left; } }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; transition: transform .12s, box-shadow .12s, border-color .12s; }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--brand); }
+  .card .ico { font-size: 28px; display: inline-block; margin-bottom: 12px; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; letter-spacing: -0.01em; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+  .card a.more { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 600; }
+  .books-strip { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .books { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .book { text-align: center; padding: 16px; border-radius: 12px; transition: background .12s; color: var(--ink); text-decoration: none; }
+  .book:hover { background: var(--bg); text-decoration: none; }
+  .book .cover { height: 160px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: #94a3b8; margin-bottom: 10px; }
+  .book .title { font-size: 14px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
+  .book .author { font-size: 12px; color: var(--ink-soft); }
+  .small-note { font-size: 12px; color: var(--ink-soft); margin-top: 16px; }
+  .ad-slot { background: #fafbfc; border: 1px dashed var(--line); border-radius: 10px; padding: 24px; text-align: center; color: #94a3b8; font-size: 12px; min-height: 90px; display: flex; align-items: center; justify-content: center; }
+  .newsletter { background: linear-gradient(135deg, var(--brand-soft) 0%, #e0f2fe 100%); border-radius: var(--radius); padding: 40px; text-align: center; }
+  .newsletter h3 { margin: 0 0 8px; font-size: 22px; letter-spacing: -0.015em; }
+  .newsletter p { margin: 0 0 20px; color: var(--ink-soft); }
+  .newsletter form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
+  .newsletter input[type=email] { flex: 1; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; font-size: 15px; font-family: inherit; }
+  .newsletter input[type=email]:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+  footer { background: var(--ink); color: #cbd5e1; padding: 48px 0 32px; margin-top: 40px; font-size: 14px; }
+  footer h4 { color: white; margin: 0 0 12px; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; }
+  footer a { color: #cbd5e1; }
+  footer a:hover { color: white; }
+  .foot-grid { display: grid; gap: 32px; grid-template-columns: 2fr 1fr 1fr 1fr; }
+  @media (max-width: 700px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  .foot-list { list-style: none; padding: 0; margin: 0; }
+  .foot-list li { margin-bottom: 8px; }
+  .disclosure { background: #1e293b; padding: 14px 16px; border-radius: 8px; margin-top: 28px; font-size: 13px; color: #94a3b8; line-height: 1.55; }
+  .copy { text-align: center; margin-top: 24px; color: #64748b; font-size: 13px; }
+</style>
+</head>
+<body>
+<nav class="top">
+  <div class="wrap inner">
+    <a href="/" class="logo">Max<span class="dot">a</span>demics</a>
+    <ul>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">★ Free for teachers — no signup, no paywall</span>
+    <h1>Free tools and resources for teachers.</h1>
+    <p class="sub">Fix a Canvas file for accessibility in 30 seconds. Grab a printable WCAG checklist. Find the teaching books educators actually use. Built by a teacher, for teachers.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#tools">Fix a Canvas file →</a>
+      <a class="btn btn-ghost" href="#resources">Browse free resources</a>
+    </div>
+  </div>
+</header>
+<div class="wrap" style="padding-top:24px;"><div class="ad-slot">Advertisement</div></div>
+<section id="tools">
+  <div class="wrap">
+    <h2>Featured tool</h2>
+    <p class="lede">Drop a Canvas file. Get it back accessibility-cleaned in under a minute.</p>
+    <div class="tool-card">
+      <div>
+        <h3>Canvas Accessibility Fixer</h3>
+        <p>Upload a <strong>.docx</strong>, <strong>.pptx</strong>, <strong>.pdf</strong>, or full Canvas <strong>.imscc</strong> export. We add alt text, fix heading order, tag PDFs, and return a clean file plus a before/after report. Helps your UDOIT score reach 100%.</p>
+        <div class="meta"><span>WCAG 2.1 AA</span><span>Section 508</span><span>CSU EO 1111</span><span>Free, no signup</span></div>
+      </div>
+      <div><a class="btn btn-primary" href="https://maxademics-canvas-a11y.hf.space/" target="_blank" rel="noopener">Open the fixer →</a></div>
+    </div>
+  </div>
+</section>
+<section id="resources" style="background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <h2>Free teacher resources</h2>
+    <p class="lede">Printable, downloadable, classroom-ready. Updated as new ones come out.</p>
+    <div class="grid">
+      <div class="card"><span class="ico">📄</span><h3>Accessible syllabus template</h3><p>Pre-styled .docx with proper heading order, contrast, and alt-text placeholders. Drop in your content.</p><a class="more" href="/resources/syllabus.html">Download free →</a></div>
+      <div class="card"><span class="ico">✅</span><h3>WCAG 2.1 AA checklist</h3><p>One-page printable checklist for course materials. Tape it above your desk.</p><a class="more" href="/resources/wcag-checklist.html">Get the PDF →</a></div>
+      <div class="card"><span class="ico">🎯</span><h3>Rubric library</h3><p>Accessible rubrics for essays, presentations, group projects, internship reports.</p><a class="more" href="/resources/rubrics.html">Browse rubrics →</a></div>
+      <div class="card"><span class="ico">📊</span><h3>Slide deck template</h3><p>Accessible .pptx template with built-in alt-text reminders and high-contrast layouts.</p><a class="more" href="/resources/slides.html">Download .pptx →</a></div>
+      <div class="card"><span class="ico">🧰</span><h3>Tool directory</h3><p>Curated free and low-cost tools: captioning, screen readers, alt-text generators, TTS.</p><a class="more" href="/resources/tools.html">See the directory →</a></div>
+      <div class="card"><span class="ico">📖</span><h3>How-to guides</h3><p>Short, step-by-step: how to add alt text, caption a video, tag a PDF, structure a Canvas page.</p><a class="more" href="/resources/guides.html">Read guides →</a></div>
+    </div>
+  </div>
+</section>
+<div class="wrap" style="padding-top:24px;"><div class="ad-slot">Advertisement</div></div>
+<section id="books" class="books-strip">
+  <div class="wrap">
+    <h2>Books teachers love</h2>
+    <p class="lede">Picked by educators. Affiliate links — buying through here supports the site at no extra cost to you.</p>
+    <div class="books">
+      <a class="book" href="https://www.amazon.com/dp/1416625836/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">The First Days of School</div><div class="author">Harry & Rosemary Wong</div></a>
+      <a class="book" href="https://www.amazon.com/dp/1416613307/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">Teach Like a Champion 3.0</div><div class="author">Doug Lemov</div></a>
+      <a class="book" href="https://www.amazon.com/dp/1138388963/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">Universal Design for Learning</div><div class="author">Anne Meyer & David Rose</div></a>
+      <a class="book" href="https://www.amazon.com/dp/0807758795/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">Culturally Responsive Teaching and The Brain</div><div class="author">Zaretta Hammond</div></a>
+      <a class="book" href="https://www.amazon.com/dp/0143126563/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">Mindset</div><div class="author">Carol Dweck</div></a>
+      <a class="book" href="https://www.amazon.com/dp/1416606351/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">Classroom Instruction That Works</div><div class="author">Dean, Hubbell, Pitler, Stone</div></a>
+      <a class="book" href="https://www.amazon.com/dp/0807755109/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">Other People's Children</div><div class="author">Lisa Delpit</div></a>
+      <a class="book" href="https://www.amazon.com/dp/0871208555/?tag=AMAZON_TAG" target="_blank" rel="noopener nofollow sponsored"><div class="cover">📚</div><div class="title">Understanding by Design</div><div class="author">Wiggins & McTighe</div></a>
+    </div>
+    <p class="small-note"><strong>Affiliate disclosure:</strong> As an Amazon Associate, Maxademics earns from qualifying purchases. We only link to books educators actually use.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="newsletter">
+      <h3>One email per month. Only good stuff.</h3>
+      <p>New free templates, tool updates, and one teaching read. No spam.</p>
+      <form onsubmit="event.preventDefault(); alert('Connect a form provider (Tally, ConvertKit, or Formspree).');">
+        <input type="email" placeholder="you@school.edu" required />
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+<footer id="about">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h4>Maxademics</h4><p style="margin:0;color:#cbd5e1;max-width:340px;">Free tools and resources for educators. Built so teachers can spend their time teaching, not fighting with file formats.</p></div>
+      <div><h4>Tools</h4><ul class="foot-list"><li><a href="https://maxademics-canvas-a11y.hf.space/" target="_blank" rel="noopener">Canvas Fixer</a></li><li><a href="#resources">Templates</a></li><li><a href="/resources/guides.html">Guides</a></li></ul></div>
+      <div><h4>Resources</h4><ul class="foot-list"><li><a href="/resources/wcag-checklist.html">WCAG Checklist</a></li><li><a href="/resources/rubrics.html">Rubrics</a></li><li><a href="/resources/tools.html">Tool Directory</a></li></ul></div>
+      <div><h4>Site</h4><ul class="foot-list"><li><a href="/about.html">About</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="disclosure"><strong>Disclosure:</strong> Maxademics is free to use. Some links on this site are affiliate links — if you buy through them, we may earn a small commission at no extra cost to you. This helps keep the tools and resources free. The Canvas Accessibility Fixer processes files in-memory and does not store or share your content. See our <a href="/privacy.html">privacy policy</a>.</div>
+    <p class="copy">© <span id="year"></span> Maxademics. All rights reserved.</p>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
