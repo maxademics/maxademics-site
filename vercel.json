@@ -1,14 +1,14 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [
         {
           "type": "host",
           "value": "fix.maxademics.com"
         }
       ],
-      "destination": "https://maxademics-canvas-a11y.hf.space/$1"
+      "destination": "/fix.html"
     }
   ]
 }
