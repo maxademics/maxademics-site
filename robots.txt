@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block crawlers from the HF Space subdomain proxy iframe
+User-agent: *
+Disallow: /fix.html
+
+Sitemap: https://maxademics.com/sitemap.xml
